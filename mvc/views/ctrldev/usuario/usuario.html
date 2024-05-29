@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css-b/style5.css">
+</head>
+<body>
+    <header>
+        <div>
+            <a href="/home"><span class="material-symbols-outlined">arrow_back</span></a> 
+    </div>
+    
+    </header>
+    <form class="form-container" action="/registrarusuario" method="post">
+        <section>
+            <div class="inpus">
+                <label for="txtnome" class="labes">Nome</label>
+                <input type="text" name="txtnome" id="txtnome" class="input-field">
+
+                <label for="txtemail" class="labes">Email</label>
+                <input type="email" name="txtemail" id="txtemail" class="input-field">
+
+                <label for="txtnivel" class="labes">Nivel</label>
+                <select name="txtnivel" id="txtnivel" class="select-field">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                </select>
+
+                <label for="txtsenha" class="labes">Senha</label>
+                <input type="password" name="txtsenha" id="txtsenha" class="input-field">
+            </div>
+            <input type="submit" value="Enviar" class="confirma-btn">
+        </section>
+    </form>
+</body>
+</html>

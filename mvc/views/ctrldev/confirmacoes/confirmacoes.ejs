@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css-b/style5.css">
+</head>
+<body>
+    
+    <form class="form-container" action="/registrarconfirmacoes" method="post">
+        <section>
+            <div>
+                <label for="txtconfirma">Confirma</label>
+                <select name="txtconfirma" id="txtconfirma">
+                    <option value=""></option>
+                    <option value="0">Não</option>
+                    <option value="1">Sim</option>
+                </select>
+
+                <label for="txtusuario">Usuário</label>
+                <select name="txtusuario" id="txtusuario">
+                    <option value="">Selecione uma opção</option>
+                    <% for(let usuario of usuarios){ %>
+                    <option value="<%= usuario.id %>"><%= usuario.nome %></option>
+                    <% } %>
+                </select>
+
+                <label for="txtevento">Eventos</label>
+                <select name="txtevento" id="txtevento">
+                    <option value="">Selecione uma opção</option>
+                    <% for(let evento of eventos){ %>
+                    <option value="<%= evento.id %>"><%= evento.nome %></option>
+                    <% } %>
+                </select>
+            </div>
+            <input type="submit" class="confirma-btn" value="Enviar">
+        </section>
+    </form>
+</body>
+</html>

@@ -1,0 +1,107 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: #E5E5E5;
+    font-family: Arimo, sans-serif;
+    max-height: 100%;
+}
+
+body{
+height: 100vh;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: #017681;
+}
+
+header div {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+span {
+    font-size: 32px !important;
+    color: black !important;
+}
+
+.ima {
+    height: 70px; 
+    width: auto; 
+}
+
+.gem {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    background-color: #0A4146;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ponto-cardcol {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #B2B2B2; 
+    padding-bottom: 15px; 
+    margin-bottom: 15px;
+    
+}
+.ponto-cardpo{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #B2B2B2; 
+    padding-bottom: 15px; 
+    margin-bottom: 15px;
+}
+.ponto-card {
+    display: flex;
+    flex-direction: row;
+   
+    justify-content: space-around;
+    align-items: center;
+ 
+    
+}
+
+.contaner {
+    width: 80%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10%;
+    background-color: #017681;
+}
+
+p {
+    font-size: small;
+}
+div.col{
+    max-height: 100%!important;
+  
+}

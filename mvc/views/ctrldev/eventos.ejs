@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontos</title>
+    <link rel="stylesheet" href="/css/css-b/style4.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+           <a href="/home"><span class="material-symbols-outlined">arrow_back</span></a> 
+        </div>
+        <div>
+            <figure class="ima">
+                <img class="gem" src="images/Lgrande.png" alt="">
+            </figure>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="col">
+                <% eventos.forEach(evento => { %>
+                    <div class="col">
+                        <h6><%= evento.nome %></h6>
+                        <div class="ponto-cardcol">
+                            <div class="ponto-card">
+                         
+                            <p><strong>Endereço:</strong> <%= evento.ponto %>, <%= evento.num %>, <%= evento.bairro %></p>
+                            <p><strong>Telefone:</strong> <%= evento.telefone %></p>
+                            <p><strong>CEP:</strong> <%= evento.cep %></p>
+                            <figure class="ima">
+                                <img src="/images/upload/<%= evento.foto %>" alt="<%= evento.nome %>" class="gem">
+                            </figure>
+                        </div>
+                            
+                            <div class="row" style="width: 100%; display: flex;">
+                                <div id="statusEvento<%= evento.id %>">Confirmação</div>
+                                <button style="width: 25%; background-color: green;border: none; border-radius: 9px;" onclick="marcarAprovado(<%= evento.id %>)">Sim</button> <!-- Passa o ID do evento como argumento -->
+                                <button style="width: 25%; background-color: red; border: none; border-radius: 9px;" onclick="marcarNegado(<%= evento.id %>)">Não</button> <!-- Passa o ID do evento como argumento -->
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <script>
+      function marcarAprovado(id) {
+        const eventoDiv = document.getElementById("statusEvento" + id); // Obtém a div de status específica pelo ID
+        eventoDiv.innerHTML = "Aprovado";
+
+        
+        fetch('/registraconfirmacoes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                txtconfirma: 1, 
+                txtusuario: <%- userID %>, 
+                txtevento: id 
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao registrar confirmação');
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Erro ao registrar confirmação:', error);
+        });
+    }
+    
+    function marcarNegado(id) {
+        const eventoDiv = document.getElementById("statusEvento" + id);
+eventoDiv.innerHTML = "Negado";
+
+// Requisição AJAX para registrar a confirmação como negada
+fetch('/registraconfirmacoes', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        txtconfirma: 0, // Definido como 0 para indicar negação
+        txtusuario: 1,
+        txtevento: id
+    })
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Erro ao registrar confirmação');
+    }
+    return response.json();
+})
+.catch(error => {
+    console.error('Erro ao registrar confirmação:', error);
+});
+
+}
+    
+    </script>
+</body>
+</html>

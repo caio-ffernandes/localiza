@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css-b/style5.css">
+</head>
+<body>
+    
+    <form class="form-container" action="/registrarpontos" method="post" enctype="multipart/form-data">
+        <section>
+            <div class="inpus">
+                <label for="txttipo" class="labes">Tipo</label>
+                <select name="txttipo" id="txttipo" class="select-field">
+                    <option value=""></option>
+                    <option value="Loja">Loja</option>
+                    <option value="Restaurante">Restaurante</option>
+                    <option value="Turistico">Turistico</option>
+                    <option value="Alugavel">Alugavel</option>
+                    <option value="Igreja">Igreja</option>
+                    <option value="Escola">Escola</option>
+                    <option value="Saude">Saude</option>
+                    <option value="Esporte">Esporte</option>
+                </select>
+
+                <label for="txtnome" class="labes">Nome</label>
+                <input type="text" name="txtnome" id="txtnome" class="input-field">
+
+                <label for="txtrua" class="labes">Rua</label>
+                <input type="text" name="txtrua" id="txtrua" class="input-field">
+
+                <label for="txtbairro" class="labes">Bairro</label>
+                <input type="text" name="txtbairro" id="txtbairro" class="input-field">
+
+                <label for="txtnumero" class="labes">Numero</label>
+                <input type="number" name="txtnumero" id="txtnumero" class="input-field">
+
+                <label for="txttelefone" class="labes">Telefone</label>
+                <input type="number" name="txttelefone" id="txttelefone" class="input-field">
+
+                <label for="txtcep" class="labes">CEP</label>
+                <input type="number" name="txtcep" id="txtcep" class="input-field">
+
+                <label for="imagem" class="labes">Imagem</label>
+                <input type="file" name="imagem" id="imagem" class="file-field">
+            </div>
+            <input type="submit" value="Enviar" class="confirma-btn">
+        </section>
+    </form>
+</body>
+</html>

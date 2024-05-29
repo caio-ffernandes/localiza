@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css-b/style5.css">
+</head>
+<body>
+    
+    <form class="form-container" action="/registrarevento" method="post" enctype="multipart/form-data">
+        <section>
+            <div class="inpus">
+                <label for="txtnome" class="labes">Nome</label>
+                <input type="text" name="txtnome" id="txtnome" class="input-field">
+
+                <label for="txtdata" class="labes">Data</label>
+                <input type="date" name="txtdata" id="txtdata" class="input-field">
+
+                <label for="txthorario" class="labes">Horario</label>
+                <input type="time" name="txthorario" id="txthorario" class="input-field">
+
+                <label for="txtcusto" class="labes">Custo</label>
+                <input type="number" name="txtcusto" id="txtcusto" class="input-field">
+
+                <label for="imagem" class="labes">Imagem</label>
+                <input type="file" name="imagem" id="imagem" class="file-field">
+
+                <label for="txtponto" class="labes">Pontos</label>
+                <select name="txtponto" id="txtponto" class="select-field">
+                    <option value="">Selecione uma opção</option>
+                    <% for(let ponto of pontos){  %>
+                    <option value="<%= ponto.id %>"><%= ponto.nome %></option>
+                    <% } %>
+                </select>
+            </div>
+            <input type="submit" value="Enviar" class="confirma-btn">
+        </section>
+    </form>
+</body>
+</html>
