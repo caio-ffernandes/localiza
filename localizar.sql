@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22/05/2024 às 19:41
+-- Tempo de geração: 29/05/2024 às 19:35
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -58,8 +58,11 @@ CREATE TABLE `confirmacoes` (
 --
 
 INSERT INTO `confirmacoes` (`id_confirmacao`, `confirma_confirmacao`, `Usuarios_id_usuario`, `Eventos_id_evento`) VALUES
-(1, '1', 1, 4),
-(2, '1', 3, 5);
+(4, '0', 1, 15),
+(5, '0', 1, 15),
+(6, '0', 1, 15),
+(7, '1', 1, 15),
+(8, '0', 1, 15);
 
 -- --------------------------------------------------------
 
@@ -82,11 +85,9 @@ CREATE TABLE `eventos` (
 --
 
 INSERT INTO `eventos` (`id_evento`, `nome_evento`, `data_evento`, `horario_evento`, `custo_evento`, `foto_evento`, `Pontos_id_ponto`) VALUES
-(4, 'aniversario cidade', '2024-05-14', '20:48:55', 0, '', 10),
-(5, 'Desfile Escolas', '2024-05-15', '23:49:53', 0, '', 11),
-(9, 'caio', '2024-05-08', '13:58:23', 132, 'asdfasdf', 10),
-(12, 'asdf', '0003-02-12', '12:23:00', 123, '83275b18d9e0b0e1a3b2d57e8024e3a3.jfif', 5),
-(13, 'luiz', '4234-03-12', '12:43:00', 243, 'e36d85af55a64254dac23ed8aeeb28b5.jpg', 6);
+(15, 'Desfile Escolas', '2024-06-28', '20:30:00', 0, '9822a2b322fabacfb910f14c28a1ea47.jpg', 16),
+(16, 'Festa Brasileira ', '2024-06-24', '19:30:00', 0, '05c574e7a645dc5485bc4d48fe8ca8d1.jpg', 17),
+(17, 'Festa Brasileira', '2024-08-31', '19:00:00', 0, 'e83470bacb5da5747534fc4c9d6e1c0d.jpg', 29);
 
 -- --------------------------------------------------------
 
@@ -111,18 +112,25 @@ CREATE TABLE `pontos` (
 --
 
 INSERT INTO `pontos` (`id_ponto`, `tipo_ponto`, `nome_ponto`, `rua_ponto`, `bairro_ponto`, `num_ponto`, `telefone_ponto`, `cep_ponto`, `foto_ponto`) VALUES
-(1, 'Restaurante', 'Restaurante Q-Cuca', 'Av.Regente Feijó', 'Centro', 333, 1832794446, 19570000, ''),
-(2, 'Restaurante', 'Restaurante Ito', 'José Colnago', 'Vila Nova', 9, 1832791964, 19570000, ''),
-(3, 'Restaurante', 'Restaurante Montanha', 'José Colnago', 'Vila Nova', 80, 1832791241, 19570000, ''),
-(4, 'Escola', 'SESI-CE368', ' José Gomes', 'Vila Nova', 1341, 1832791456, 19570000, ''),
-(5, 'Esporte', 'Ginásio Municipal', 'Clemente Pereira', 'Centro', 71, 1832791702, 19570000, ''),
-(6, 'Loja', 'Casarão Regente', 'Barão do Rio Branco', 'Centro', 94, 1832791906, 19570000, ''),
-(7, 'Saude', 'ESF Santa Rita', 'Francisco Maldonado', 'Santa Rita', 80, 1832792343, 19570000, ''),
-(8, 'Igreja', 'Igreja Matriz', 'Julio Mesquita', 'Centro', 94, 1234567890, 19570000, ''),
-(9, 'Igreja', 'CCB Tropical', 'João Honorato de Barros', 'Jardim Tropical', 56, 0, 19570000, ''),
-(10, 'Escola', 'Casa da Criança', 'Antonio Carlos', 'Sumare', 723, 1832792723, 19570000, ''),
-(11, 'Turistico', 'Praça Fonte Luminosa', 'Mal. Floriano Peixoto', 'Sumare', 289, 0, 19570000, ''),
-(12, 'Turistico', 'luiz', 'sf', 'asdf', 132, 312, 19570000, 'c232b7297e894f2d735e45aea860bf82.jpg');
+(14, 'Restaurante', 'House Burger', 'Barão do Rio Branco', 'Centro', 75, 2147483647, 19570000, 'cd05bb0919b731e63fe88d0258bd410e.jpg'),
+(15, 'Restaurante', 'Q-Cuca', 'Av. Regente Feijó', 'Centro', 333, 1832794446, 19570000, 'bc5bcc995783679faf8619bcff8059de.jpg'),
+(16, 'Turistico', 'Praça Fonte Luminosa', 'Mal. Floriano Peixoto', 'Centro', 289, 0, 19570000, 'f93fc7d94e26bf4a6a30792d7e974584.avif'),
+(17, 'Escola', 'SESI', ' José Gomes', 'Fim cidade', 1341, 1832791456, 19570000, 'e9b2a8f9ea275e1448c6cf0a9306590a.jpg'),
+(18, 'Escola', 'Colégio Êxito', 'Padre Antônio Vieira', 'Vila Nova', 115, 2147483647, 19570000, '7eb9191adae227620f7b2fe4240dab1a.jpg'),
+(19, 'Escola', 'Colégio Arte Livre', 'Martins Francisco ', 'JD Tenis Clube', 224, 1832791937, 19570000, 'f29e3b3c01460485114e28242b87facc.jpg'),
+(20, 'Escola', 'Ivo Liboni', 'Av. José Bonifácio', 'JD Tenis Clube', 1, 1832791088, 19570000, '87d427634213524b96e99aa1aefc2475.jfif'),
+(21, 'Igreja', 'Igreja Matriz', ' Júlio Mesquita', 'Centro', 94, 1234567890, 19570000, '3e0f112c9486573c06f2024b071dee15.jpg'),
+(22, 'Igreja', 'Igreja Adventista Do Sétimo Dia', 'São Bento', 'Vila Nova', 370, 2147483647, 19570000, '640adb7ea93537b216a7399bc212b8cc.jpg'),
+(23, 'Loja', 'Casarão Regente ', 'Barão do Rio Branco', ' Centro', 94, 1832791906, 19570000, '5cc662d7248c03e61fd65bcb001a707e.jpg'),
+(24, 'Loja', 'Belinha Modas', 'Av. José Bonifácio', 'Centro', 0, 2147483647, 19570000, 'bf087a68098d20d867fcd75c139bf248.jfif'),
+(25, 'Saude', 'ESF Fepasa', 'R. São Bento', 'Vila Nova', 0, 1832794061, 19570000, '26c3a674ee1638a3e980d26b7b98efbd.jfif'),
+(26, 'Saude', 'Hospital e Maternidade Regional', 'Brigadeiro Tobias', '', 300, 1832793333, 19570000, 'd6f92eeec5912c344dd92d39a6f1f903.jpg'),
+(27, 'Esporte', 'Regente Tênis Clube', 'Av. José Bonifácio', 'JD Tenis Clube', 23, 1832791513, 19570000, 'e134b697f9dcaf0042e6d083b9cbe0ba.jfif'),
+(28, 'Alugavel', 'Portal Eventos', 'Júlio Mesquita,', 'Portal ', 1117, 0, 19570000, 'ef572e81835061a3e6cd00953e5f7a16.jpg'),
+(29, 'Escola', 'Associação Casa Da Criança', 'São Paulo', 'Sumare', 723, 1832792723, 19570000, '0b2423658dd98be06dab9873bafe8d4b.jpg'),
+(30, 'Alugavel', 'Chácara Ramos', ' Alvino Viani', 'Jardim Santa Rita', 0, 2147483647, 19570000, '63029bbcaddcb479982fc84308fa7efe.jpg'),
+(31, 'Alugavel', 'ITI-BAN Eventos', ' Antônio Ledesma Filho', '', 374, 2147483647, 19570000, 'b76f0d783befb788a0bfedcbfde950c7.jpg'),
+(32, 'Esporte', 'Ginásio Municipal', 'Av. Clemente Pereira', 'Centro', 71, 1832791702, 19570000, '94b0bb12092bbd930af7e881f7fa4f26.jpg');
 
 -- --------------------------------------------------------
 
@@ -171,7 +179,8 @@ INSERT INTO `usuarios` (`id_usuario`, `nome_usuario`, `email_usuario`, `nivel_us
 (2, 'maria', 'maria@gmail.com', '1', '123'),
 (3, 'lavinia', 'lala@gmail.com', '1', '123'),
 (4, 'Maria Vitoria', 'mavi@gmail.com', '0', '123'),
-(5, 'Adriano', 'dri@gmail.com', '0', '123');
+(5, 'Adriano', 'dri@gmail.com', '0', '123'),
+(6, 'rafa', 'rafaelotario@gmail.com', '0', '1234');
 
 -- --------------------------------------------------------
 
@@ -230,25 +239,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `confirmacoes`
 --
 ALTER TABLE `confirmacoes`
-  MODIFY `id_confirmacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_confirmacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `eventos`
 --
 ALTER TABLE `eventos`
-  MODIFY `id_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `pontos`
 --
 ALTER TABLE `pontos`
-  MODIFY `id_ponto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_ponto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restrições para tabelas despejadas
